@@ -1,4 +1,5 @@
 ﻿using AutomationProject_02.Handler;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using System;
 using System.Collections.Generic;
@@ -12,12 +13,21 @@ namespace AutomationProject_02.PageObject
     {
         // Localizadores. Elementos de la pagina
         protected string loggedInAsXPath = "//i[@class='fa fa-user']";
+        string message = "";
 
         // Constructor. Validación de la pagina, lanza excepción si no esta en la pagina principal
         public PrincipalPage(IWebDriver driver)
         {
             Driver = driver;
-            if (!Driver.Title.Equals("Automation Exercise"))
+            try {
+                Assert.IsTrue(Driver.Title.Equals("Automation Exercise"));
+                    
+                 }
+            catch(Exception e)
+            {
+                message = e.Message;
+            }
+                
                 //throw new Exception("No es la pagina de login");
         }
 
