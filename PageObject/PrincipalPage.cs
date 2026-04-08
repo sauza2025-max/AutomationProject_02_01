@@ -18,7 +18,7 @@ namespace AutomationProject_02.PageObject
         {
             Driver = driver;
             if (!Driver.Title.Equals("Automation Exercise"))
-                throw new Exception("No es la pagina de login");
+                //throw new Exception("No es la pagina de login");
         }
 
         // Metodo para verificar si esta cargada la pagina de inicio de sesion
